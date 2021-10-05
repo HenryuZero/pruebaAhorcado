@@ -28,7 +28,6 @@ public class pruebaAhorcadoArray {
   }
 
   public static void main(String[] args) {
-    escondido = new secretoAhorcado();
     llenandoArray();
     Inicio();
     }
@@ -38,6 +37,7 @@ public class pruebaAhorcadoArray {
     System.out.println(menu.OPCION_1.getNUMBEROPT() + menu.OPCION_1.getNAMEOPT());
     System.out.println(menu.OPCION_2.getNUMBEROPT() + menu.OPCION_2.getNAMEOPT());
     System.out.println(menu.OPCION_3.getNUMBEROPT() + menu.OPCION_3.getNAMEOPT());
+    System.out.println(menu.OPCION_4.getNUMBEROPT() + menu.OPCION_4.getNAMEOPT());
     try {
       eleccion = in.nextInt();
       switch (eleccion) {
@@ -48,6 +48,9 @@ public class pruebaAhorcadoArray {
           introducir();
           break;
         case 3:
+          listar();
+          break;
+        case 4:
           System.exit(0); break;
         default:
           System.out.println("Favor de introducir un número válido");
@@ -97,6 +100,7 @@ public class pruebaAhorcadoArray {
   }
 
   private static void introducir(){
+    escondido = new secretoAhorcado();
     do {
       System.out.print(Mensajes.MENSAJE_INSERCION.getMESSAGE_CONTENT());
       in.nextLine();
@@ -135,12 +139,19 @@ public class pruebaAhorcadoArray {
     return false;
   }
   private static void llenandoArray(){
+    escondido = new secretoAhorcado();
       escondido.setWord ("hola mundo");
     secretoArray.add(escondido);
-   /*   escondido.setWord ("elemento nuevo");
+    /*  escondido.setWord ("elemento nuevo");
     secretoArray.add(escondido);
       escondido.setWord ("destripando la historia");
     secretoArray.add(escondido);*/
   }
 
+  public static void listar(){
+   secretoArray.forEach(
+           ahorcadoDTO -> {
+             System.out.println(ahorcadoDTO);
+           });
+  }
 }
