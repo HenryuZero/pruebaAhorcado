@@ -69,8 +69,6 @@ public class pruebaAhorcadoArray {
     palabraAdivinar = getPalabra();
     cubreGuion = getGuiones(palabraAdivinar);
     boolean finJuego = false;
-    //int j=-1;
-    char [] letrasCorrectas = new char[palabraAdivinar.length()];
     do {
       System.out.println("Tienes "+intentos+" intentos");
       System.out.println(cubreGuion);
@@ -83,7 +81,6 @@ public class pruebaAhorcadoArray {
         if (p1==p2){
           cubreGuion[i]=palabraAdivinar.charAt(i);
           acierto=true;
-          /*repeticion(letra,j);*/
         }
       }
       if(!acierto){
@@ -102,19 +99,6 @@ public class pruebaAhorcadoArray {
       }
     } while (!finJuego);
   }
-  /*private static void repeticion(char letra,int j){
-    if (j==-1){
-      j++;
-      letrasCorrectas[j]=letra;}
-    else{
-      for (int m=0;m<=j;m++){
-        if (Character.toLowerCase(letra)==Character.toLowerCase(letrasCorrectas[m]))
-          System.out.println("letra repetida, elija otra");break;
-      }
-    }
-    if (letrasCorrectas.length >0){
-      System.out.println("Palabras usadas"+letrasCorrectas);}
-  }*/
 
   private static void introducir(){
     escondido = new secretoAhorcado();
