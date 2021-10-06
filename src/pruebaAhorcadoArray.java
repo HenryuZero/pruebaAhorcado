@@ -69,7 +69,8 @@ public class pruebaAhorcadoArray {
     palabraAdivinar = getPalabra();
     cubreGuion = getGuiones(palabraAdivinar);
     boolean finJuego = false;
-    //char [] letrasCorrectas = new char[palabraAdivinar.length()];
+    //int j=-1;
+    char [] letrasCorrectas = new char[palabraAdivinar.length()];
     do {
       System.out.println("Tienes "+intentos+" intentos");
       System.out.println(cubreGuion);
@@ -77,9 +78,12 @@ public class pruebaAhorcadoArray {
       char letra = in.next().charAt(0);
       boolean acierto = false;
       for(int i=0; i<palabraAdivinar.length();i++){
-        if (letra==palabraAdivinar.charAt(i)){
-          cubreGuion[i]=letra;
+        char p1 =Character.toLowerCase(letra);
+        char p2= Character.toLowerCase(palabraAdivinar.charAt(i));
+        if (p1==p2){
+          cubreGuion[i]=palabraAdivinar.charAt(i);
           acierto=true;
+          /*repeticion(letra,j);*/
         }
       }
       if(!acierto){
@@ -98,6 +102,19 @@ public class pruebaAhorcadoArray {
       }
     } while (!finJuego);
   }
+  /*private static void repeticion(char letra,int j){
+    if (j==-1){
+      j++;
+      letrasCorrectas[j]=letra;}
+    else{
+      for (int m=0;m<=j;m++){
+        if (Character.toLowerCase(letra)==Character.toLowerCase(letrasCorrectas[m]))
+          System.out.println("letra repetida, elija otra");break;
+      }
+    }
+    if (letrasCorrectas.length >0){
+      System.out.println("Palabras usadas"+letrasCorrectas);}
+  }*/
 
   private static void introducir(){
     escondido = new secretoAhorcado();
@@ -117,6 +134,7 @@ public class pruebaAhorcadoArray {
   static String getPalabra(){
     int indice=0;
     indice = numeroAleatorioEnRango();
+    System.out.println(indice);
     String getFrase=secretoArray.get(indice).getWord();
     return getFrase;
   }

@@ -12,8 +12,6 @@ public class secretoAhorcado {
 
     @Override
     public String toString() {
-        return "secretoAhorcado{" +
-                "word='" + wordIn + '\'' +
-                '}';
+        return "word='" + wordIn + '\'' ;
     }
 }
